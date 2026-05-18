@@ -5,13 +5,13 @@ class Mpkg < Formula
   sha256 "7421266d9b088f33d7a4d93707406983f9f52e09b838ab6a34b75faeb98b3ae1"
   license "MIT"
 
-  depends_on "go" => :build
-
   livecheck do
     url :url
     regex(/^v?(\d+(?:\.\d+)+)$/i)
     strategy :github_latest
   end
+
+  depends_on "go" => :build
 
   def install
     system "go", "build", "-o", bin/"mpkg", "."
