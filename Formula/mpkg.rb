@@ -1,8 +1,8 @@
 class Mpkg < Formula
   desc "Generate static HTML for Go vanity import paths"
   homepage "https://github.com/sembraniteam/mpkg"
-  url "https://github.com/sembraniteam/mpkg/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "715ce05f2b8064ed7b18455fb94dc5344b43df0b275770d57b037e2ed8d19e03"
+  url "https://github.com/sembraniteam/mpkg/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "ecfd21192d56a0f54faa20272b4f3ecf59a7668de9c8e1f06cf4c5b12d95dc34"
   license "MIT"
 
   livecheck do
@@ -14,7 +14,7 @@ class Mpkg < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"mpkg", "."
+    system "go", "build", "-ldflags", "-s -w", "-o", bin/"mpkg", "."
   end
 
   test do
